@@ -84,28 +84,3 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-songItems.forEach((element, i) => {
-    element.getElementsByTagName("img")[0].src = songs[i].coverPath;
-    element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
-
-    // Add a click event listener to play the song when the song name is clicked
-    element.getElementsByClassName("songName")[0].addEventListener("click", () => {
-        playSong(i);
-    });
-});
-
-
-
-function playSong(index) {
-    makeAllPlays();
-    songIndex = index;
-    songItems[index].getElementsByClassName("songItemPlay")[0].classList.remove("fa-play-circle");
-    songItems[index].getElementsByClassName("songItemPlay")[0].classList.add("fa-pause-circle");
-    audioElement.src = songs[index].filepath;
-    masterSongName.innerText = songs[index].songName;
-    audioElement.currentTime = 0;
-    audioElement.play();
-    gif.style.opacity = 1;
-    masterPlay.classList.remove("fa-play-circle");
-    masterPlay.classList.add("fa-pause-circle");
-}
